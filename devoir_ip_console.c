@@ -1,13 +1,24 @@
 int main()
 {
-    char ip[20];
+    char* ip=NULL;
+    getdata(&ip);
+    verification(ip);
+    return 0;
+}
+void getdata(char** ip)
+{
+    int d=255;
+    *ip=(char*)malloc(d*sizeof(char));
+    printf("entrer l'ip : ");
+    scanf("%s", *ip);
+}
+void verification(char* ip)
+{
+    int i=0;
+    int val[4];
     char *t = NULL;
     int point = 0;
-    int val[4];
     int j;
-    int i=0;
-    printf("entrer l'ip : ");
-    scanf("%s", ip);
     for (j = 0; j < strlen(ip); j++)
     {
         if (ip[j] == '.')
@@ -67,6 +78,4 @@ int main()
         {
             printf("ip de classe E\n");
         }
-    return 0;
 }
-
